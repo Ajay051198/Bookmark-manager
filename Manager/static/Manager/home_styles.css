@@ -1,0 +1,5 @@
+{% load static %}
+
+.hero-body {
+	padding: 1rem 1.5rem;
+}

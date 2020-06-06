@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hello Bulma!</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	<!-- ############################################################# -->
+	<!-- <link rel="stylesheet" href="{% static 'Manager/debug.css' %}"> -->
+	<!-- ############################################################# -->
+
+	<link rel="stylesheet" href="{% static 'Manager/helpers.css' %}">
+	<link rel="stylesheet" href="{% static 'Manager/home_styles.css' %}">
+
+	<style media="screen">
+		.bg {
+			background: url('{% static "Manager/images/bg.jpeg" %}');
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+		}
+	</style>
+
+</head>
+
+<body>
+	<section class="hero">
+		<div class="hero-body" style="padding: 0px auto;">
+			{% include "Manager/navbar.html" %}
+		</div>
+	</section>
+
+	<section class="section bg" style="height: 90vh;">
+		<div class="container">
+			<div class="columns is-multiline">
+
+				{% for each in BM %}
+				{% if each.folder.folder == "Professional" %}
+				<div class="column is-half">
+					<div class="notification is-primary">
+						<div class="content">
+							<p>
+								<strong>{{each.name}}</strong>
+								<br>
+								URL: <a href="{{each.url}}">{{each.url}}</a>
+								<br>
+								Folder: {{each.folder}}
+								<br>
+								Date of creation: {{each.date_of_creation}}
+							</p>
+						</div>
+					</div>
+				</div>
+
+
+				{% elif each.folder.folder == "UBC" %}
+				<div class="column is-half">
+					<div class="notification is-warning">
+						<div class="content">
+							<p>
+								<strong>{{each.name}}</strong>
+								<br>
+								URL: <a href="{{each.url}}">{{each.url}}</a>
+								<br>
+								Folder: {{each.folder}}
+								<br>
+								Date of creation: {{each.date_of_creation}}
+							</p>
+						</div>
+					</div>
+				</div>
+
+				{% elif each.folder.folder == "DeepLearning" %}
+				<div class="column is-half">
+					<div class="notification is-danger">
+						<div class="content">
+							<p>
+								<strong>{{each.name}}</strong>
+								<br>
+								URL: <a href="{{each.url}}">{{each.url}}</a>
+								<br>
+								Folder: {{each.folder}}
+								<br>
+								Date of creation: {{each.date_of_creation}}
+							</p>
+						</div>
+					</div>
+				</div>
+
+				{% elif each.folder.folder == "misc" %}
+				<div class="column is-half">
+					<div class="notification is-link">
+						<div class="content">
+							<p>
+								<strong>{{each.name}}</strong>
+								<br>
+								URL: <a href="{{each.url}}">{{each.url}}</a>
+								<br>
+								Folder: {{each.folder}}
+								<br>
+								Date of creation: {{each.date_of_creation}}
+							</p>
+						</div>
+					</div>
+				</div>
+
+				{% else %}
+				<div class="column is-half">
+					<div class="notification is-success">
+						<div class="content">
+							<p>
+								<strong>{{each.name}}</strong>
+								<br>
+								URL: <a href="{{each.url}}">{{each.url}}</a>
+								<br>
+								Folder: {{each.folder}}
+								<br>
+								Date of creation: {{each.date_of_creation}}
+							</p>
+						</div>
+					</div>
+				</div>
+
+				{% endif %}
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+
+
+</body>
+
+</html>
